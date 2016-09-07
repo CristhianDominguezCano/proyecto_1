@@ -6,6 +6,8 @@
 int main(){
 
     int Opc;
+    FILE *f;// este es el archivo
+    char cadena;
     
     printf("Qu%c es lo que deseas hacer?\n",130);
  	printf("----------Men%c----------\n",163);
@@ -16,7 +18,13 @@ int main(){
 	switch(Opc)
 	{
 		case 1:
-			
+			f=fopen("agenda.txt","r");
+			printf("La agenda telefonica es\n\n");
+			while (feof(f) == 0)
+		{
+			cadena =fgetc(f);
+			printf("%c", cadena);
+		}
 			break;
 		case 2:
 			
@@ -29,4 +37,6 @@ int main(){
 			printf("Opcion no valida\n");
 			break;
 	}
+	fclose(f);
+	getchar();
 }
